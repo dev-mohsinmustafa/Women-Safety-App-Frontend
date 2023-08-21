@@ -31,18 +31,33 @@ const FeedBack = ({ navigation }) => {
     const radioButtons = useMemo(() => ([
         {
             id: '1', // acts as primary key, should be unique and non-empty string
-            label: 'Neither Satisfied or dissatisfied',
-            value: 'option1'
+            // label: 'Neither Satisfied or dissatisfied',
+            label: (
+                <Text style={{color: '#372329'}}>{'Neither Satisfied or dissatisfied'}</Text>
+              ),
+            value: 'option1',
+            // color: 'red',
+
         },
         {
             id: '2',
-            label: 'Neither Satisfied or dissatisfied',
-            value: 'option2'
+            // label: 'Neither Satisfied or dissatisfied',
+            label: (
+                <Text style={{color: '#372329'}}>{'Neither Satisfied or dissatisfied'}</Text>
+              ),
+            value: 'option2',
+            // color: 'red',
+
         },
         {
             id: '3',
-            label: 'Neither Satisfied or dissatisfied',
-            value: 'option3'
+            // label: 'Neither Satisfied or dissatisfied',
+            label: (
+                <Text style={{color: '#372329'}}>{'Neither Satisfied or dissatisfied'}</Text>
+              ),
+            value: 'option3',
+            // color: 'red',
+
         },
 
     ]), []);
@@ -158,14 +173,14 @@ const FeedBack = ({ navigation }) => {
 
             <View style={styles.container5}>
                 <TextInput
-                    placeholder='Please enter your FeedBack'
+                    placeholder='Please Give FeedBack'
                     placeholderTextColor="#372329"
                     onChangeText={(text) => setfeedback(text)}
                     onPressIn={() => setErrormsg(null)}
                     multiline={true}
-                    numberOfLines={20}
-                    style={{color:"red"}}
-                // style={styles.input}
+                    // numberOfLines={20}
+                    // style={{color:"red"}}
+                style={styles.input}
                 />
             </View>
             <View style={{ marginHorizontal: widthPixel(22),marginTop:5 }}>
@@ -251,22 +266,31 @@ const styles = StyleSheet.create({
         borderRadius: 17,
         marginHorizontal: widthPixel(20),
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        alignItems:'flex-start',
+        width:"90%",
+        height:345,
+        // justifyContent: 'center',
+        // alignItems: 'center',
         // height: 345
     },
     input: {
-        borderWidth: 1,
-        borderColor: "#372329",
-        borderRadius: 10,
-        paddingHorizontal: widthPixel(10),
-        backgroundColor: "#FFFFFF",
+        // borderWidth: 1,
+        // borderColor: "#372329",
+        // borderRadius: 10,
+        // paddingHorizontal: widthPixel(10),
+        // backgroundColor: "#FFFFFF",
         width: "100%",
-        height: "100%"
+        color:"#372329",
+        // height: "100%",
+        fontFamily: "Nunito-Bold",
+    paddingTop:heightPixel(33),
+    paddingHorizontal:widthPixel(19)
+        
     },
     button: {
         flex: 0.3,
         marginTop: 19,
+        marginBottom:100
     }
 
 

@@ -231,7 +231,7 @@ const XplafesDetail = ({ navigation }) => {
           onChangeText={(text) => setmessage(text)}
           onPressIn={() => setErrormsg(null)}
           multiline={true}
-          numberOfLines={20}
+          // numberOfLines={20}
           style={styles.input}
         />
       </View>
@@ -314,8 +314,13 @@ const styles = StyleSheet.create({
     marginHorizontal: widthPixel(20),
     flex: 1,
     // justifyContent: 'center',
-    alignItems: 'center',
-    // height: 345
+    // alignItems: 'center',
+    // height: 345,
+    alignItems:'flex-start',
+    // width:374,
+    width:"90%",
+
+    height:345,
   },
   input: {
     // borderWidth: 1,
@@ -323,9 +328,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: widthPixel(10),
     backgroundColor: "#FFFFFF",
-    width: "80%",
-    height: "70%",
-    color:"red"
+    width: "100%",
+    // height: "70%",
+    color:"#372329",
+    fontFamily: "Nunito-Regular",
+    // backgroundColor:"red",
+    paddingTop:heightPixel(33),
+    paddingHorizontal:widthPixel(19)
   },
   button: {
     flex: 0.3,

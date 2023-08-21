@@ -1,3 +1,10 @@
+import image1 from "../assets/images/womenAtWork.png"
+import image2 from "../assets/images/schoolGirl.png"
+import image3 from "../assets/images/homeMakers.png"
+
+
+
+
 export const locationData = [
     // {
     //     location: "About App",
@@ -32,7 +39,8 @@ export const locationData = [
 
 export const channelData = [
     {
-        work: "Women at Work 💼",
+        work: "Women at Work",
+        image: image1,
         status: "56/3429 online",
         dot: "...",
         member1: "Jenny:",
@@ -41,7 +49,8 @@ export const channelData = [
         para2: "Hey girls, Wassup!!"
     },
     {
-        work: "School Girls 🏫",
+        work: "School Girls",
+        image: image2,
         status: "38/1856 online",
         dot: "...",
         member1: "Joanne:",
@@ -50,7 +59,8 @@ export const channelData = [
         para2: "Hey girls, Wassup!!"
     },
     {
-        work: "Homemakers 🏠",
+        work: "Homemakers",
+        image: image3,
         status: "75/2951 women online",
         dot: "...",
         member1: "Sofie:",

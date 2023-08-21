@@ -27,7 +27,12 @@ const Channel = ({ navigation }) => {
                 style={styles.container2}
                 onPress={() => navigation.navigate("ChatGPT")}
               >
-                <Text style={[styles.work, { marginLeft: widthPixel(23),marginTop:10 }]}>{item.work}</Text>
+                <View style={{flexDirection:'row', alignItems:'center',marginTop:10}}>
+
+                <Text style={[styles.work, { marginLeft: widthPixel(23), }]}>{item.work}</Text>
+                <Image style={{marginTop:-3}}
+                 source={item.image}/>
+                </View>
 
 
                 <View style={{ alignItems: 'center', flexDirection: 'row', marginLeft: widthPixel(51) }} >
@@ -39,10 +44,10 @@ const Channel = ({ navigation }) => {
                 </View>
 
                 <View style={{ marginLeft: widthPixel(83), marginTop:-10 }}>
-                  <Text >{item.dot}</Text>
+                  <Text style={{color:"#372329"}}>{item.dot}</Text>
                 </View>
 
-                <View style={{ marginVertical:heightPixel(5),flexDirection: "row", marginLeft: widthPixel(35),}}>
+                <View style={{ marginVertical:heightPixel(5),flexDirection: "row", marginLeft: widthPixel(30),}}>
                   <View style={{flexDirection:'column',}}>
                     <Text style={styles.member}>{item.member1}</Text>
                     <Text style={styles.member}>{item.member2}</Text>
@@ -89,6 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     // alignItems:'center',
     width: widthPixel(372),
+    // width:"90%",
     height: heightPixel(130),
     backgroundColor: "#FFECD0",
     borderWidth: 1,

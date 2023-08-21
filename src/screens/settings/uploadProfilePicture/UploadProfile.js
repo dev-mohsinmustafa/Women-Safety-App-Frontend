@@ -313,7 +313,7 @@ const Profile = (props) => {
                 // value={userdata?.fullName}
                 placeholder='Marie Antoinette'
                 placeholderTextColor="#372329"
-                style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "red" }]}
+                style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center',  }]}
               >{userdata?.fullName}</Text>
             </View>
 
@@ -328,7 +328,7 @@ const Profile = (props) => {
                   // value={userdata?.email}
                   placeholder='marieantoinette@gmail.com'
                   placeholderTextColor="#372329"
-                  style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "red" }]}
+                  style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center',  }]}
                 >{userdata?.email}</Text>
               </View>
             </View>
@@ -343,7 +343,7 @@ const Profile = (props) => {
                 <Text
                   placeholder='Marie Antoinette'
                   placeholderTextColor="#372329"
-                  style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "pink" }]}
+                  style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center',  }]}
                 >{userdata?.description || "No description available"}</Text>
               </View>
             </View>

@@ -32,7 +32,7 @@ const Header = (props) => {
             <Text style={[styles.bible, ]}>{props.title}</Text>
             <TouchableOpacity>
                 <Image
-                    style={{ width: 45, height: 44,  }}
+                    style={{ width: 50, height: 50,  }}
                     // style={{ width: 45, height: 44, marginLeft:9 }}
                     source={props.image2}
 

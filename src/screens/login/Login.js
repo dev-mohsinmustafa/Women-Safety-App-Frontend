@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     },
     email: {
         color: "#FFECD0",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(14),
         // backgroundColor: "green",
 
@@ -336,7 +336,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: "#FFECD0",
         borderRadius: 10,
-        paddingHorizontal: widthPixel(10),
+        // paddingHorizontal: widthPixel(10),
+        padding:widthPixel(10)
+
     },
     container2: {
         // flex: 1,
@@ -369,7 +371,7 @@ const styles = StyleSheet.create({
     },
     newHere: {
         color: "#FFECD0",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(16),
         // backgroundColor: "green",
     },

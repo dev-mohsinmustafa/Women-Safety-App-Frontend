@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert } from 'react-native';
 // import ShakeEvent from 'react-native-shake-event';
 import axios from 'axios';
 import ShakeEvent from 'react-native-shake'; // Import from 'react-native-shake'
@@ -27,17 +27,21 @@ const ShakeSignal = () => {
       // from: '+17692103456',
       from: '+12512972937',
 
-      // body: 'Hello, Umer your sister is in problem please help her!',
-      body: "🚨 EMERGENCY ALERT: Your safety is at risk. Take action now!",
+      // body: "🚨 EMERGENCY ALERT: Your safety is at risk. Take action now!",
+      body: "Emergency Alert: 🚨 Your safety is at risk. Take action now! This is to inform you that a distress signal has been activated and sent to your designated emergency contact number.Your immediate attention and assistance may be required.Please take appropriate action and contact the person who triggered this alert.Thank you for your prompt response.",
   };
 
 
-  try {
+    try {
       const response = await axios.post('https://women-safety-app-backend-production.up.railway.app/sendDistressSignal', messageData);
+      // Alert.alert("🚨 EMERGENCY ALERT: A Distress Signal has been sent to your family phone number")
+      Alert.alert("Emergency Alert: 🚨A Shake Phone Signal Has Been Sent Dear [Family Member], This is to inform you that a distress signal has been activated and sent to your designated emergency contact number.")
+
+
       console.log(response.data);
-  } catch (error) {
+    } catch (error) {
       console.error(error);
-  }
+    }
     // try {
     //   // Replace with your backend URL
     //   const backendUrl = 'http://10.0.0.2:8090/sendDistressSignal';
@@ -59,7 +63,7 @@ const ShakeSignal = () => {
         <Image
           style={{ alignSelf: 'center', height: 200, width: 200, borderRadius: 30 }}
           source={require("../../assets/images/shake2.png")}
-           />
+        />
       </View>
       <View style={styles.container}>
         <Text style={styles.text}>Shake your phone to send a distress signal!</Text>
@@ -69,23 +73,24 @@ const ShakeSignal = () => {
 };
 
 const styles = StyleSheet.create({
-  
+
   mainContainer: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: "#FFECD0",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-},
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal:5
   },
   text: {
-    textAlign:'center',
+    textAlign: 'center',
     color: "red",
     fontFamily: "Nunito-SemiBold",
-    fontSize: 20,
+    fontSize: 18,
   },
 });
 

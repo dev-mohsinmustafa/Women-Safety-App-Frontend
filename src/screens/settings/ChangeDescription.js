@@ -360,7 +360,7 @@ const styles = StyleSheet.create({
     },
     email: {
         color: "#FFECD0",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(14),
         // backgroundColor: "green",
 
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
     },
     description:{
         color: "#372329",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(16),
     },
     container2: {
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
     },
     newHere: {
         color: "#FFECD0",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(16),
         // backgroundColor: "green",
     },

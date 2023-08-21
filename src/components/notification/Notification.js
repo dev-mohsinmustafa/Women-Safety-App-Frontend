@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native'
 import Button from '../button/Button';
 
 const Notification = ({ navigation }) => {
@@ -8,9 +8,15 @@ const Notification = ({ navigation }) => {
       <View style={styles.container1}>
         <Text style={styles.notification}>Notification Sent!!</Text>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <Button title="Ok!" />
-        </TouchableOpacity>
+        <View style={styles.button} onPress={() => navigation.goBack()}>
+          {/* <Button title="Ok!" /> */}
+          
+            <TouchableOpacity onPress={() => navigation.goBack()} style={{width:55,height:28, backgroundColor:"#FF3974", borderRadius:10,
+          alignItems:'center', justifyContent:'center',
+          }}>
+              <Text style={styles.ok}>Ok!</Text>
+            </TouchableOpacity>
+        </View>
 
       </View>
     </View>
@@ -41,5 +47,12 @@ const styles = StyleSheet.create({
   button: {
     // flex: 0.3,
     marginTop: 10,
+    alignSelf:'flex-end',
+    marginRight:21
+  },
+  ok:{
+    color: "#FFECD0",
+    fontFamily: "Nunito-Bold",
+    fontSize: 16,
   }
 })

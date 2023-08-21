@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     },
     loginButton: {
         color: "#372329",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(24),
     }
 })

@@ -120,8 +120,8 @@ const Description = ({ navigation }) => {
           onChangeText={(text) => setdescription(text)}
           onPressIn={() => setErrormsg(null)}
           multiline={true}
-          numberOfLines={20}
-        // style={styles.input}
+          // numberOfLines={20}
+        style={styles.input}
         />
       </View>
 
@@ -190,22 +190,20 @@ const styles = StyleSheet.create({
     borderRadius: 17,
     marginHorizontal: widthPixel(20),
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // height: 345
+    width:"90%",
+        height:345,
   },
   input: {
-    borderWidth: 1,
-    borderColor: "#372329",
     borderRadius: 10,
-    paddingHorizontal: widthPixel(10),
-    backgroundColor: "#FFFFFF",
     width: "100%",
-    height: "100%"
+    color:"#372329",
+    fontFamily: "Nunito-Bold",
+paddingTop:heightPixel(33),
+paddingHorizontal:widthPixel(19)
   },
   button: {
     flex: 0.3,
-    marginTop: 19,
+    marginVertical: 19,
   }
 
 

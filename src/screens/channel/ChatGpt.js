@@ -16,16 +16,18 @@ let {
 const ChatGpt = () => {
 
     const [data, setData] = useState([]);
-    // const apiKey = "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"
-    // const apiKey ="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"
+   
     const apiUrl = "https://api.openai.com/v1/engines/text-davinci-002/completions" //api request
-    // const apiKey = "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"
-    const apiKey = "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"
+    const apiKey = "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"
+    console.log("API key:", apiKey); // Check the API key
+
     const [textInput, setTextInput] = useState("");
 
 
     const handleSend = async () => {
         const prompt = textInput
+        console.log("Prompt:", prompt); // Check the prompt before making the API request
+
         try {
             const response = await axios.post(apiUrl, {
                 // request for api endpoints
@@ -62,8 +64,8 @@ const ChatGpt = () => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 0.2, }}>
-                <Header title="Women at Work 💼"
+            <View style={{ flex: 0.1, marginTop: heightPixel(43) }}>
+                <Header title="    Women at Work 💼"
                     image1={require("../../assets/images/arrow-left.png")}
                     image2={[]}
                 />
@@ -212,7 +214,7 @@ const styles = StyleSheet.create({
     input2: {
         flex: 1,
         height: heightPixel(60),
-        color: 'red',
+        color: '#372329',
     },
     image: {
         width: 30,

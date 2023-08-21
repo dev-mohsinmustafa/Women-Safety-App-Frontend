@@ -526,7 +526,7 @@
 
 
 
-import { StyleSheet, Text,  View,  Image,  Alert, Pressable, ActivityIndicator, TouchableOpacity} from 'react-native';
+import { ScrollView,StyleSheet, Text,  View,  Image,  Alert, Pressable, ActivityIndicator, TouchableOpacity} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -720,12 +720,13 @@ const Profile = (props) => {
     
 
 
-
+  
         <View style={styles.container}>
                 {/* container 1 */}
 
 
 {/* container 2 */}
+<ScrollView style={{flex:1}}>
 
 <View style={styles.container2}>
         <Text style={styles.profile}>Profile</Text>
@@ -778,7 +779,7 @@ const Profile = (props) => {
 {imagePath || url ? (
     <Image
         source={{ uri: imagePath || url }}
-        style={{ width: 180, height: 180, borderRadius: 180, alignSelf: 'center', marginTop: 30 }}
+        style={{ width: 150, height: 150, borderRadius: 180, alignSelf: 'center',  }}
     />
 ) : (
     <ActivityIndicator size="large" color="#FF3974" />
@@ -787,7 +788,7 @@ const Profile = (props) => {
                 <Pressable onPress={handleImageUpload}>
                     <Image source={require('../../assets/images/editImage.png')} 
                     style={{ width: 40, height: 40, display: 'flex', flexDirection: 'row', 
-                    alignSelf: 'flex-end', marginLeft: '32%', marginTop: -20 }} />
+                    alignSelf: 'flex-end', marginLeft: '35%', marginTop: heightPixel(-50) }} />
 
                 </Pressable>
 {/* {imagePath || url ? 
@@ -908,7 +909,9 @@ const Profile = (props) => {
 
 
 
+        </ScrollView>
         </View>
+
     );
 };
 
@@ -947,6 +950,7 @@ const styles = StyleSheet.create({
       container2: {
         // backgroundColor: "gray",
         flex: 0.4,
+        marginTop:heightPixel(31),
         justifyContent: 'space-between',
         marginHorizontal: widthPixel(22),
         marginLeft: widthPixel(157),
@@ -967,6 +971,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         // marginTop:12
+        marginTop: heightPixel(30)
     
       },
       profilepic: {
@@ -982,7 +987,8 @@ const styles = StyleSheet.create({
       },
       container4: {
         // backgroundColor: "blue",
-        flex: 1
+        flex: 1,
+        marginTop:heightPixel(51)
     
       },
       mainContainer: {
@@ -1026,6 +1032,8 @@ const styles = StyleSheet.create({
         flex: 0.3,
         alignSelf: 'flex-end',
         marginHorizontal: widthPixel(27),
+        marginTop:heightPixel(108),
+        marginBottom:heightPixel(39)
     
       },
       button: {

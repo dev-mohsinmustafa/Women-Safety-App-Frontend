@@ -15,8 +15,9 @@ const SosSignal = () => {
             to: '+923007261440',
             // from: '+17692103456',
             from: '+12512972937',
-            // body: 'Hello, Umer your sister is in problem please help her!',
-            body: "🚨 EMERGENCY ALERT: Your safety is at risk. Take action now!",
+            // body: "🚨 EMERGENCY ALERT: Your safety is at risk. Take action now!",
+            body: "Emergency Alert: 🚨 Your safety is at risk. Take action now! This is to inform you that a distress signal has been activated and sent to your designated emergency contact number.Your immediate attention and assistance may be required.Please take appropriate action and contact the person who triggered this alert.Thank you for your prompt response.",
+
 
         };
 
@@ -24,6 +25,8 @@ const SosSignal = () => {
         try {
             const response = await axios.post('https://women-safety-app-backend-production.up.railway.app/sendDistressSignal', messageData);
             console.log(response.data);
+            Alert.alert("Emergency Alert: 🚨A Distress Signal Has Been Sent Dear [Family Member], This is to inform you that a distress signal has been activated and sent to your designated emergency contact number.")
+            // Alert.alert("🚨 EMERGENCY ALERT: A Distress Signal has been sent to your family phone number")
         } catch (error) {
             console.error(error);
         }
