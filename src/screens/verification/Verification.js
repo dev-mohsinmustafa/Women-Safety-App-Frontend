@@ -145,7 +145,7 @@ const [loading, setLoading] = useState(false);
                         if (data.message === "User Registered Successfully"){
                             setLoading(false)
                             Alert.alert(data.message);
-                            navigation.navigate("Login")
+                            navigation.navigate("RegisterAccountCreated")
                         }
                         else{
                             setLoading(false)

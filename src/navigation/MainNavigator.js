@@ -45,7 +45,7 @@ import SosSignal from '../screens/sosSignal/SosSignal';
 import ShakeSignal from '../screens/shakeSignal/ShakeSignal';
 // import PhoneDialerWithShake from '../screens/phoneDialerWithShake/PhoneDialerWithShake';
 
-
+import RegisterAccountCreated from '../screens/registerAccountCreated/RegisterAccountCreated';
 
 
 const Stack = createNativeStackNavigator();
@@ -157,6 +157,8 @@ const MainNavigator = () => {
         <Stack.Screen name="ShakeSignal" component={ShakeSignal}
           options={{ animation: "slide_from_bottom" }}
         />
+
+        <Stack.Screen name="RegisterAccountCreated" component={RegisterAccountCreated}/>
 
       </Stack.Navigator>
 
