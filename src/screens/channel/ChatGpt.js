@@ -18,7 +18,7 @@ const ChatGpt = () => {
     const [data, setData] = useState([]);
    
     const apiUrl = "http://api.openai.com/v1/engines/text-davinci-002/completions" //api request
-    const apiKey = "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"
+    const apiKey = "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"
     console.log("API key:", apiKey); // Check the API key
 
     const [textInput, setTextInput] = useState("");

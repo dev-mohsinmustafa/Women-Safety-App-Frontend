@@ -56,7 +56,7 @@ import { Marker } from 'react-native-maps';
 import { Callout } from 'react-native-maps';
 
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-// import { GOOGLE_MAPS_API_KEY } from '../../constants/keys/Keys';
+import { GOOGLE_MAPS_API_KEY } from '../../constants/keys/Keys';
 
 import MapViewDirections from 'react-native-maps-directions';
 
@@ -394,8 +394,7 @@ const Home = () => {
               // end long lang
             }}
             query={{
-              // key: GOOGLE_MAPS_API_KEY,
-              key: "AIzaSyBRXj2DhUtd9c-hvmKWDJm4DIv-YUgWvjw",
+              key: GOOGLE_MAPS_API_KEY,
               
               language: 'en',
             }}
@@ -463,8 +462,7 @@ const Home = () => {
               // end long lang
             }}
             query={{
-              // key: GOOGLE_MAPS_API_KEY,
-              key: "AIzaSyBRXj2DhUtd9c-hvmKWDJm4DIv-YUgWvjw",
+              key: GOOGLE_MAPS_API_KEY,
               
               language: 'en',
             }}
@@ -603,8 +601,7 @@ const Home = () => {
               strokeColor='red'
               strokeWidth={2}
               destination={destination}
-              // apikey={GOOGLE_MAPS_API_KEY}
-              apikey={"AIzaSyBRXj2DhUtd9c-hvmKWDJm4DIv-YUgWvjw"}
+              apikey={GOOGLE_MAPS_API_KEY}
             /> : null
 
         }
