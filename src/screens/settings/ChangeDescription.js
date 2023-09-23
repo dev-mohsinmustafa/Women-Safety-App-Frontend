@@ -207,7 +207,7 @@ const ChangeDescription = ({ navigation }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -273,7 +273,7 @@ const ChangeDescription = ({ navigation }) => {
 
 
                             <View style={styles.imageContainer}>
-                                <Image
+                                {/* <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/google-logo.png")}
                                 />
@@ -284,7 +284,7 @@ const ChangeDescription = ({ navigation }) => {
                                 <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/apple-logo.png")}
-                                />
+                                /> */}
                             </View>
 
                     }
@@ -300,7 +300,7 @@ const ChangeDescription = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{marginBottom:27}} onPress={() => sendToBackend()}>
                         <MainButton title="Save" />
                     </TouchableOpacity>
 
@@ -308,7 +308,7 @@ const ChangeDescription = ({ navigation }) => {
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 

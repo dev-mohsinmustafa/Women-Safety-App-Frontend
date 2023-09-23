@@ -1,18 +1,71 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import nopic from "../../assets/images/profile.png"
 
-const ChatCard = ({ chat }) => {
-    console.log(chat);
+const ChatCard = ({ chat,navigation }) => {
+    // console.log(chat);
+
+    // new
+    console.log(chat.fuserid);
+
+    let [fuserdata, setFuserdata] = React.useState(null);
+    useEffect(() => {
+        
+        fetch('https://women-safety-app-backend-production.up.railway.app/getuserbyid', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userid: chat.fuserid
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setFuserdata(data)
+            })
+            .catch(err => {
+                alert('Something went wrong')
+                setFuserdata(null)
+            })
+    }, [])
+    //
+
     return (
         <View style={styles.chartCard}>
-            <Image
+            {/* <Image
                 source={{ uri: chat.profileimage }}
                 style={styles.image}
-            />
+            /> */}
 
+            {/* new */}
+            {
+                fuserdata?.user?.profilepic ?
+                    <Image source={{ uri: fuserdata?.user?.profilepic }} style={styles.image} />
+                    :
+                    <Image source={nopic} style={styles.image} />
+            }
+
+            {/*  */}
             <View style={styles.container1}>
-                <Text style={styles.username}>{chat.username}</Text>
+                {/* <Text style={styles.username}>{chat.username}</Text> */}
+                {/* <Text style={styles.lastmessage}>{chat.lastmessage}</Text> */}
+
+                {/* new */}
+
+                <Text style={styles.username} onPress={
+
+                    () => {
+                        navigation.navigate('MessagePage', {
+                            fuseremail: fuserdata.user.email,
+                            fuserid: fuserdata.user._id,
+                        })
+                    }
+
+                }>{fuserdata?.user?.username}</Text>
                 <Text style={styles.lastmessage}>{chat.lastmessage}</Text>
+                {/*  */}
             </View>
 
         </View>
@@ -46,7 +99,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
-    lastmessage:{
+    lastmessage: {
         color: '#372329',
         fontSize: 19,
     }

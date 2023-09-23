@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-# You may use http://rbenv.org/ or https://rvm.io/ to install and use this version
+# You may use http://rbenv.org/ or http://rvm.io/ to install and use this version
 ruby '>= 2.6.10'
 
 gem 'cocoapods', '>= 1.11.3'

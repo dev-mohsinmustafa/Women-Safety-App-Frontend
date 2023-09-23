@@ -242,7 +242,7 @@ const XplafesDetail = ({ navigation }) => {
 
 
       <TouchableOpacity style={styles.button} onPress={() => sendToBackend()}>
-        <Button title="Contact Her!" />
+        <Button title="Contact Us!" />
       </TouchableOpacity>
 
 

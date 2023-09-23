@@ -57,16 +57,39 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
 
 
 
+    const [passwordError, setPasswordError] = useState('');
+
+    // Function to validate password length
+    const validatePassword = (password) => {
+        if (password.length < 6) {
+          setPasswordError('Password must be at least 6 characters long');
+          return false;
+        } else {
+          setPasswordError('');
+          return true;
+        }
+      };
+    
+    
+
+
     const sendToBackend = () => {
         // agr ye dono password matched krty to agy barho nai to error 
         if (password == "" || confirmPassword == "") {
             Alert.alert("Plese enter password")
             setErrormsg("Please enter your password");
 
-        } else if (password != confirmPassword) {
+        } 
+              // Password length validation
+   else if (!validatePassword(password)) {
+    return; // Stop execution if password is invalid
+  }
+        else if (password != confirmPassword) {
             // setErrormsg("Password does not Matched")
             Alert.alert("Password does not Matched")
         }
+   
+  
         else {
             setLoading(true);
             fetch("https://women-safety-app-backend-production.up.railway.app/resetPassword", {
@@ -144,7 +167,7 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -197,11 +220,20 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
 
                                     secureTextEntry={true}
 
-                                    onPressIn={() => setErrormsg(null)}
+                                    onPressIn={() => {
+                                        setErrormsg(null)
+                                        setPasswordError(''); // Clear password validation error
+
+                                    }}
 
 
                                 />
                             </View>
+                            
+                              {/* Display password validation error */}
+            {passwordError ? (
+              <Text style={styles.errorText}>{passwordError}</Text>
+            ) : null}
 
                         </View>
 
@@ -221,11 +253,21 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
 
                                     secureTextEntry={true}
 
-                                    onPressIn={() => setErrormsg(null)}
+                                    onPressIn={() => {
+                                        setErrormsg(null)
+                                        setPasswordError(''); // Clear password validation error
+
+                                    }}
 
 
                                 />
                             </View>
+
+                            
+                              {/* Display password validation error */}
+            {passwordError ? (
+              <Text style={styles.errorText}>{passwordError}</Text>
+            ) : null}
 
                         </View>
 
@@ -243,7 +285,7 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
 
 
                             <View style={styles.imageContainer}>
-                                <Image
+                                {/* <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/google-logo.png")}
                                 />
@@ -254,7 +296,7 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
                                 <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/apple-logo.png")}
-                                />
+                                /> */}
                             </View>
 
                     }
@@ -270,7 +312,7 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{marginBottom:27}} onPress={() => sendToBackend()}>
                         <MainButton title="Next" />
                     </TouchableOpacity>
 
@@ -278,7 +320,7 @@ const ForgotPassword_ChoosePassword = ({ navigation, route }) => {
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 
@@ -390,6 +432,17 @@ const styles = StyleSheet.create({
         fontSize: fontPixel(16),
         // backgroundColor: "gray",
     },
+
+    errorText:{
+        marginLeft: 30,
+        width:"70%",
+        marginTop: 5,
+        color: "red",
+        backgroundColor: "white",
+        textAlign: 'center',
+        borderRadius: 10,
+        fontSize: 15
+    }
    
 })
 

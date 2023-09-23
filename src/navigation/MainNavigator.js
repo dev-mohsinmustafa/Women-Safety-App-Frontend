@@ -46,6 +46,9 @@ import ShakeSignal from '../screens/shakeSignal/ShakeSignal';
 // import PhoneDialerWithShake from '../screens/phoneDialerWithShake/PhoneDialerWithShake';
 
 import RegisterAccountCreated from '../screens/registerAccountCreated/RegisterAccountCreated';
+import AudioRecording from '../screens/settings/audioRecording/AudioRecording';
+import ShareFiles from '../screens/shareFiles/ShareFiles';
+import Splash from '../screens/splash/Splash';
 
 
 const Stack = createNativeStackNavigator();
@@ -59,7 +62,13 @@ const MainNavigator = () => {
       <Stack.Navigator
 
         screenOptions={{ headerShown: false, animation: "slide_from_right" }}
-        initialRouteName="Login">
+        initialRouteName="Splash">
+
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+        // options={{title: 'Welcome to Splash Screen'}}
+        />
 
         <Stack.Screen
           name="Login"
@@ -143,6 +152,14 @@ const MainNavigator = () => {
         <Stack.Screen name="VideoCall" component={VideoCall}
           options={{ animation: "slide_from_bottom" }}
         />
+        <Stack.Screen name="AudioRecording" component={AudioRecording}
+          options={{ animation: "slide_from_bottom" }}
+        />
+
+
+        <Stack.Screen name="ShareFiles" component={ShareFiles}
+          options={{ animation: "slide_from_bottom" }}
+        />
 
         {/* <Stack.Screen name="PhoneDialerWithShake" component={PhoneDialerWithShake} /> */}
 
@@ -158,7 +175,7 @@ const MainNavigator = () => {
           options={{ animation: "slide_from_bottom" }}
         />
 
-        <Stack.Screen name="RegisterAccountCreated" component={RegisterAccountCreated}/>
+        <Stack.Screen name="RegisterAccountCreated" component={RegisterAccountCreated} />
 
       </Stack.Navigator>
 

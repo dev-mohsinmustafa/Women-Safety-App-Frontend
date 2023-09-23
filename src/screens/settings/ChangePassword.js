@@ -11,6 +11,7 @@ import { errormessage, bwmessage } from '../../styles/CommonError';
 import ratios from '../../styles/ratios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GoBack from '../../components/button/GoBack';
+import MainButton from '../../components/mainButton/MainButton';
 
 
 
@@ -53,6 +54,20 @@ const ChangePassword = ({ navigation }) => {
 
 
     const handlePasswordChange = () => {
+
+
+
+        // new code
+        if (oldPassword === newPassword) {
+            // Old password and new password cannot be the same
+            Alert.alert("Old password and new password cannot be the same");
+            return;
+        }
+    
+
+        // 
+
+
         // agr ye dono password matched krty to agy barho nai to error 
         if (oldPassword == "" || newPassword == "" || confirmNewPassword == "") {
             Alert.alert("Plese fill all the fields")
@@ -153,7 +168,7 @@ const ChangePassword = ({ navigation }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -281,7 +296,7 @@ const ChangePassword = ({ navigation }) => {
 
 
                             <View style={styles.imageContainer}>
-                                <Image
+                                {/* <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/google-logo.png")}
                                 />
@@ -292,7 +307,7 @@ const ChangePassword = ({ navigation }) => {
                                 <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/apple-logo.png")}
-                                />
+                                /> */}
                             </View>
 
                     }
@@ -305,17 +320,22 @@ const ChangePassword = ({ navigation }) => {
 
 
 
-                    <View style={styles.button}>
+                    {/* <View style={styles.button}>
                         <TouchableOpacity
                             onPress={() => handlePasswordChange()}
                         >
                             <Text style={styles.loginButton}>Next</Text>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
+
+                    <TouchableOpacity  onPress={() => handlePasswordChange()}>
+                        <MainButton title="Next" />
+                    </TouchableOpacity>
+
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 
@@ -438,10 +458,11 @@ const styles = StyleSheet.create({
         marginHorizontal: widthPixel(30),
         alignSelf: 'flex-end',
         marginTop: -41,
+        // marginBottom:27
     },
     loginButton: {
         color: "#372329",
-        fontFamily: "Nunito-Italic",
+        fontFamily: "Nunito-Regular",
         fontSize: fontPixel(24),
     }
 

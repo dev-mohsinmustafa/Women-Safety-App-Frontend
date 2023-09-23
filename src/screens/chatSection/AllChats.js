@@ -17,85 +17,85 @@ const AllChats = ({ navigation }) => {
     //         username: "user1",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "mohsin",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user2",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "saeed",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user3",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "azam",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user4",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "ahmad",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user5",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "ali",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user6",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "hassan",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user7",
     //         lastmessage: "hello",
     //         time: "12:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "hussain",
     //         lastmessage: "Hey, how are you?",
     //         time: "1:00",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
 
     // ]

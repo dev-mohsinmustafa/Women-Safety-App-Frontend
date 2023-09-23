@@ -198,7 +198,7 @@ const OtherUserProfile = ({ navigation, route }) => {
                                 // value={userdata?.fullName}
                                 placeholder='Marie Antoinette'
                                 placeholderTextColor="#372329"
-                                style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "red" }]}
+                                style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center',  }]}
                             >{userdata?.fullName}</Text>
                         </View>
 
@@ -213,7 +213,7 @@ const OtherUserProfile = ({ navigation, route }) => {
                                     // value={userdata?.email}
                                     placeholder='marieantoinette@gmail.com'
                                     placeholderTextColor="#372329"
-                                    style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "red" }]}
+                                    style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', }]}
                                 >{userdata?.email}</Text>
                             </View>
                         </View>
@@ -229,7 +229,7 @@ const OtherUserProfile = ({ navigation, route }) => {
                                     placeholder='Web and Mobile App Developer'
                                     // placeholder='I am a Software Developer and I love to code'
                                     placeholderTextColor="#372329"
-                                    style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center', backgroundColor: "pink" }]}
+                                    style={[styles.input, styles.inputField, { textAlign: 'center', height: heightPixel(50), textAlignVertical: 'center',  }]}
                                     value={userdata?.description}
                                 />
                                 {/* {userdata?.description}</Text> */}

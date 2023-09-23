@@ -17,7 +17,7 @@ const Bible = ({ navigation }) => {
     <View style={styles.container}>
 
       <View style={styles.container1}>
-        <Text style={styles.bible}>Bible of Safety</Text>
+        <Text style={styles.bible}>Safety Tips</Text>
       </View>
 
 

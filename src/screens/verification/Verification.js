@@ -282,7 +282,7 @@ const [loading, setLoading] = useState(false);
 { loading ? <ActivityIndicator size={'large'} color="red" />  : 
 
                     <View style={styles.imageContainer}>
-                        <Image
+                        {/* <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/google-logo.png")}
                         />
@@ -293,7 +293,7 @@ const [loading, setLoading] = useState(false);
                         <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/apple-logo.png")}
-                        />
+                        /> */}
                     </View>
 
 }

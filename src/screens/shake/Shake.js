@@ -14,7 +14,7 @@ const Shake = () => {
         // Implement the Android-specific phone call handling using native modules
         // You need to implement a native module for Android to make the phone call.
         // Refer to React Native documentation for creating native modules for Android:
-        // https://reactnative.dev/docs/native-modules-android
+        // http://reactnative.dev/docs/native-modules-android
       }
     };
 

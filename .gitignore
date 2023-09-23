@@ -24,7 +24,6 @@ ios/.xcode.env.local
 
 # Android/IntelliJ
 #
-channel/
 build/
 .idea
 .gradle
@@ -34,6 +33,12 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+
+# ignore files
+keys/
+
+
+
 
 # node.js
 #
@@ -48,7 +53,7 @@ yarn-error.log
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# http://docs.fastlane.tools/best-practices/source-control/
 
 **/fastlane/report.xml
 **/fastlane/Preview.html

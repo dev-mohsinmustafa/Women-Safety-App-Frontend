@@ -114,7 +114,7 @@ const ForgotPasswordVerificationCode = ({ navigation, route }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -188,7 +188,7 @@ const ForgotPasswordVerificationCode = ({ navigation, route }) => {
                     </View>
 
                     <View style={styles.imageContainer}>
-                        <Image
+                        {/* <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/google-logo.png")}
                         />
@@ -199,7 +199,7 @@ const ForgotPasswordVerificationCode = ({ navigation, route }) => {
                         <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/apple-logo.png")}
-                        />
+                        /> */}
                     </View>
 
 
@@ -214,7 +214,7 @@ const ForgotPasswordVerificationCode = ({ navigation, route }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{marginBottom:27}} onPress={() => sendToBackend()}>
                         <MainButton title="Verify" />
                     </TouchableOpacity>
 
@@ -222,7 +222,7 @@ const ForgotPasswordVerificationCode = ({ navigation, route }) => {
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 
@@ -269,8 +269,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 22,
         fontSize: 15,
         textAlign: "center",
-        // padding: 5,
+        padding: 5,
         borderRadius: 5,
+        
     },
     email: {
         color: "#FFECD0",

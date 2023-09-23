@@ -17,8 +17,8 @@ const ChatGpt = () => {
 
     const [data, setData] = useState([]);
    
-    const apiUrl = "https://api.openai.com/v1/engines/text-davinci-002/completions" //api request
-    const apiKey = "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"
+    const apiUrl = "http://api.openai.com/v1/engines/text-davinci-002/completions" //api request
+    const apiKey = "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"
     console.log("API key:", apiKey); // Check the API key
 
     const [textInput, setTextInput] = useState("");
@@ -65,7 +65,7 @@ const ChatGpt = () => {
     return (
         <View style={styles.container}>
             <View style={{ flex: 0.1, marginTop: heightPixel(43) }}>
-                <Header title="    Women at Work 💼"
+                <Header title="   Women Help AI 🚺"
                     image1={require("../../assets/images/arrow-left.png")}
                     image2={[]}
                 />

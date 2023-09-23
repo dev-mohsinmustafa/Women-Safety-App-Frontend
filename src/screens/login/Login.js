@@ -43,7 +43,46 @@ const Login = () => {
     //  mtlb agr user exist nai krta to error dekhayenge na
 
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+
+    const [emailError, setEmailError] = useState('');
+
+
+    const validateEmail = (email) => {
+        // Regular expression for email validation
+        // const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+
+        if (!emailRegex.test(email)) {
+            setEmailError('Invalid email address');
+            return false;
+        } else {
+            setEmailError('');
+            return true;
+        }
+    };
+
+
+
+    const [passwordError, setPasswordError] = useState('');
+
+    // Function to validate password length
+    const validatePassword = (password) => {
+        if (password.length < 6) {
+          setPasswordError('Password must be at least 6 characters long');
+          return false;
+        } else {
+          setPasswordError('');
+          return true;
+        }
+      };
+    
+
+
+
+
 
     const sendToBackend = () => {
         // console.log(fdata);
@@ -57,6 +96,19 @@ const Login = () => {
             // error hamne set to kr deya ab ise dekhana be prega to signup se copy kr lenge
             return;
         }
+
+        if (!validateEmail(fdata.email)) {
+            return; // Stop execution if email is invalid
+        }
+
+
+           // Password length validation
+    if (!validatePassword(fdata.password)) {
+        return; // Stop execution if password is invalid
+      }
+  
+
+
         // ab agr empty nai hai data to else wala 
         else {
             setLoading(true)
@@ -95,6 +147,7 @@ const Login = () => {
                 .catch(err => {
                     setLoading(false)
                     console.log(err);
+                    Alert.alert("Server Error")
                 })
         }
 
@@ -142,7 +195,7 @@ const Login = () => {
     }
 
 
-    
+
 
 
     const passwordHandler = () => {
@@ -189,11 +242,23 @@ const Login = () => {
                                 placeholderTextColor="#FFECD0"
                                 style={[styles.input, styles.email]}
 
-                                onChangeText={(text) => setFdata({ ...fdata, email: text })}
+                                onChangeText={(text) => setFdata({ ...fdata, email: text.toLowerCase() })}
 
-                                onPressIn={() => setErrormsg(null)}
+                                onPressIn={() => {
+                                    setErrormsg(null);
+                                    setEmailError(''); // Clear email validation error
+
+                                }
+                                }
                             />
                         </View>
+
+{/* Display email validation error */}
+{emailError ? (
+  <Text style={styles.errorText}>{emailError}</Text>
+) : null}
+
+
 
                         <View style={{ marginTop: heightPixel(19) }}>
                             <View style={styles.container2}>
@@ -213,7 +278,11 @@ const Login = () => {
                                     secureTextEntry={!showPassword}
 
 
-                                    onPressIn={() => setErrormsg(null)}
+                                    onPressIn={() => {
+                                        setErrormsg(null)
+                                        setPasswordError(''); // Clear password validation error
+
+                                    }}
                                 />
 
                                 <TouchableOpacity onPress={passwordHandler} style={{ position: 'absolute', right: 10, top: 8, }}>
@@ -227,6 +296,12 @@ const Login = () => {
                                     }
                                 </TouchableOpacity>
                             </View>
+
+                              {/* Display password validation error */}
+            {passwordError ? (
+              <Text style={styles.errorText}>{passwordError}</Text>
+            ) : null}
+
 
                         </View>
 
@@ -246,7 +321,7 @@ const Login = () => {
                     {/* {loading ? <ActivityIndicator size={'large'} color="red" /> : */}
 
                     <View style={styles.imageContainer}>
-                        <Image
+                        {/* <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/google-logo.png")}
                         />
@@ -257,7 +332,7 @@ const Login = () => {
                         <Image
                             style={{ width: widthPixel(45), height: heightPixel(45) }}
                             source={require("../../assets/images/apple-logo.png")}
-                        />
+                        /> */}
                     </View>
 
                     {/* } */}
@@ -272,7 +347,7 @@ const Login = () => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={{marginBottom:27}} onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{ marginBottom: 27 }} onPress={() => sendToBackend()}>
                         <MainButton title="Login" />
                     </TouchableOpacity>
 
@@ -337,7 +412,7 @@ const styles = StyleSheet.create({
         borderColor: "#FFECD0",
         borderRadius: 10,
         // paddingHorizontal: widthPixel(10),
-        padding:widthPixel(10)
+        padding: widthPixel(10)
 
     },
     container2: {
@@ -397,6 +472,17 @@ const styles = StyleSheet.create({
         color: "#372329",
         fontFamily: "Nunito-Italic",
         fontSize: fontPixel(24),
+    },
+
+    errorText:{
+        marginLeft: 30,
+        width:"70%",
+        marginTop: 5,
+        color: "red",
+        backgroundColor: "white",
+        textAlign: 'center',
+        borderRadius: 10,
+        fontSize: 15
     }
 
 })

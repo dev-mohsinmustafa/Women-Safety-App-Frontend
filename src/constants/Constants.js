@@ -5,6 +5,9 @@ import image3 from "../assets/images/homeMakers.png"
 
 
 
+
+
+
 export const locationData = [
     // {
     //     location: "About App",
@@ -69,3 +72,5 @@ export const channelData = [
         para2: "Hey girls, Wassup!!"
     }
 ]
+
+

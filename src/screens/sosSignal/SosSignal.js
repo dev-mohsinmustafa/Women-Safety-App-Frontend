@@ -5,16 +5,16 @@ import Header from '../../components/header/Header';
 
 const SosSignal = () => {
     const [emergencyContacts, setEmergencyContacts] = useState([
-        { name: 'Emergency Contact 1', phoneNumber: '111-111-1111' },
-        { name: 'Emergency Contact 2', phoneNumber: '222-222-2222' },
+        { name: 'Emergency Contact 1', phoneNumber: '1991' },
+        { name: 'Emergency Contact 2', phoneNumber: '15' },
         // Add more emergency contacts as needed
     ]);
 
     const handlePanicButtonPress = async () => {
         const messageData = {
+            from: '+15177422505',
             to: '+923007261440',
             // from: '+17692103456',
-            from: '+12512972937',
             // body: "🚨 EMERGENCY ALERT: Your safety is at risk. Take action now!",
             body: "Emergency Alert: 🚨 Your safety is at risk. Take action now! This is to inform you that a distress signal has been activated and sent to your designated emergency contact number.Your immediate attention and assistance may be required.Please take appropriate action and contact the person who triggered this alert.Thank you for your prompt response.",
 
@@ -29,6 +29,9 @@ const SosSignal = () => {
             // Alert.alert("🚨 EMERGENCY ALERT: A Distress Signal has been sent to your family phone number")
         } catch (error) {
             console.error(error);
+            console.error('Response Data:', error.response.data);
+            console.error('Response Status:', error.response.status);
+            Alert.alert("Your free trial is expired! Please recharge your account");
         }
     };
 

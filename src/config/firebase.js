@@ -54,7 +54,7 @@ const firebaseConfig = {
     storageBucket: "womensafetyapp-eaeb2.appspot.com",
     messagingSenderId: "1035857805556",
     appId: "1:1035857805556:web:27697254808eb90afbdea1",
-    databaseURL: "https://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
+    databaseURL: "http://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
 };
 
 // Check if Firebase is already initialized before initializing it again

@@ -50,6 +50,28 @@ const ForgotPassword = ({ navigation, route }) => {
 
 
 
+    // Add a state variable to track the email validation error:
+    const [emailError, setEmailError] = useState('');
+// Create a function to validate the email using a regular expression:
+const validateEmail = (email) => {
+    // Regular expression for email validation
+    // const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+  
+    if (!emailRegex.test(email)) {
+      setEmailError('Invalid email address');
+      return false;
+    } 
+    else {
+      setEmailError('');
+      return true;
+    }
+  };
+  
+
+
 
     const sendToBackend = () => {
         if (email === "") {
@@ -57,6 +79,10 @@ const ForgotPassword = ({ navigation, route }) => {
             Alert.alert("Please enter your email");
             return
         }
+        if (!validateEmail(email)) {
+            return; // Stop execution if email is invalid
+          }
+        
         else {
             setLoading(true)
             fetch("https://women-safety-app-backend-production.up.railway.app/verifyForgotPassword", {
@@ -131,7 +157,7 @@ const ForgotPassword = ({ navigation, route }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -181,15 +207,24 @@ const ForgotPassword = ({ navigation, route }) => {
                                     placeholderTextColor="#FFECD0"
                                     style={[styles.input, styles.email]}
 
-                                    onChangeText={(text) => setEmail(text)}
+                                    onChangeText={(text) => setEmail(text.toLowerCase())}
 
                                     // secureTextEntry={true}
 
-                                    onPressIn={() => setErrormsg(null)}
+                                    onPressIn={() => 
+                                        {setErrormsg(null)
+                                            setEmailError(''); // Clear email validation error
+
+                                        }}
 
 
                                 />
                             </View>
+
+                            {/* Display email validation error */}
+{emailError ? (
+  <Text style={styles.errorText}>{emailError}</Text>
+) : null}
 
                         </View>
 
@@ -208,7 +243,7 @@ const ForgotPassword = ({ navigation, route }) => {
                         loading ? <ActivityIndicator size={'large'} color="red" /> :
 
                             <View style={styles.imageContainer}>
-                                <Image
+                                {/* <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/google-logo.png")}
                                 />
@@ -219,7 +254,7 @@ const ForgotPassword = ({ navigation, route }) => {
                                 <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/apple-logo.png")}
-                                />
+                                /> */}
                             </View>
                     }
 
@@ -236,7 +271,7 @@ const ForgotPassword = ({ navigation, route }) => {
                     </View>
 
 
-                    <TouchableOpacity onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{marginBottom:27}}  onPress={() => sendToBackend()}>
                         <MainButton title="Next" />
                     </TouchableOpacity>
 
@@ -245,7 +280,7 @@ const ForgotPassword = ({ navigation, route }) => {
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 
@@ -357,6 +392,16 @@ const styles = StyleSheet.create({
         fontSize: fontPixel(16),
         // backgroundColor: "gray",
     },
+    errorText:{
+        marginLeft: 30,
+        width:"70%",
+        marginTop: 5,
+        color: "red",
+        backgroundColor: "white",
+        textAlign: 'center',
+        borderRadius: 10,
+        fontSize: 15
+    }
 
 })
 

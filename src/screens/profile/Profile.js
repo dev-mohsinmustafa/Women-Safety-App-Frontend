@@ -25,7 +25,7 @@
 //   // const data = {
 //   //   username: "mohsinmustafaansari",
 //   //   email: "mohsinmustafaansari@gmail.com",
-//   //   profilepic: "https://picsum.photos/500/500",
+//   //   profilepic: "http://picsum.photos/500/500",
 //   // }
 
 
@@ -562,7 +562,7 @@ import storage from '@react-native-firebase/storage';
 //     storageBucket: "womensafetyapp-eaeb2.appspot.com",
 //     messagingSenderId: "1035857805556",
 //     appId: "1:1035857805556:web:27697254808eb90afbdea1",
-//     databaseURL: "https://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
+//     databaseURL: "http://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
 // };
 
 // // Check if Firebase is already initialized before initializing it again
@@ -644,7 +644,7 @@ const Profile = (props) => {
                 setUploaded(false);
                 Alert.alert('Image Updated!');
                 const url = await storage().ref(fileName).getDownloadURL();
-                console.log('url', url);
+                console.log('Image url====>', url);
                 await AsyncStorage.setItem('image', url);
                 console.log('URL stored in AsyncStorage');
             });
@@ -714,6 +714,35 @@ const Profile = (props) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+  const handleImageDelete = async () => {
+    try {
+      // Delete the profile picture from AsyncStorage
+      await AsyncStorage.removeItem('image');
+      setImagePath(''); // Clear the image path in the state
+
+      // If there's a URL, delete the image from Firebase storage
+      if (url) {
+        const fileName = url.substring(url.lastIndexOf('/') + 1);
+        await storage().ref(fileName).delete();
+      }
+      Alert.alert('Image Deleted!');
+
+    } catch (error) {
+      console.log(error, error.message);
+    }
+  };
+
+
     
     return (
         
@@ -781,16 +810,57 @@ const Profile = (props) => {
         source={{ uri: imagePath || url }}
         style={{ width: 150, height: 150, borderRadius: 180, alignSelf: 'center',  }}
     />
-) : (
-    <ActivityIndicator size="large" color="#FF3974" />
-)}
+) : 
+// (
+//     <ActivityIndicator size="large" color="#FF3974" />
+// )}
 
+(
                 <Pressable onPress={handleImageUpload}>
-                    <Image source={require('../../assets/images/editImage.png')} 
-                    style={{ width: 40, height: 40, display: 'flex', flexDirection: 'row', 
-                    alignSelf: 'flex-end', marginLeft: '35%', marginTop: heightPixel(-50) }} />
+                    <Image source={require('../../assets/images/profile.png')} 
+                    // style={{ width: 40, height: 40, display: 'flex', flexDirection: 'row', 
+                    // alignSelf: 'flex-end', marginLeft: '35%', marginTop: heightPixel(-50) }}
+                     />
 
                 </Pressable>
+                )}
+
+
+
+
+
+
+
+
+
+{/* Delete */}
+
+{imagePath || url ? (
+          <Pressable onPress={handleImageDelete}>
+            <Image
+              source={require('../../assets/images/deleteImage.png')}
+              style={{
+                width: 40,
+                height: 40,
+                display: 'flex',
+                flexDirection: 'row',
+                alignSelf: 'flex-end',
+                marginLeft: '35%',
+                marginTop: heightPixel(-50),
+              }}
+            />
+          </Pressable>
+        ) : null}
+
+
+
+
+
+
+
+
+
+
 {/* {imagePath || url ? 
             <TouchableOpacity onPress={handleImageUpload}>
             <Image
@@ -1108,7 +1178,7 @@ const styles = StyleSheet.create({
 
 // const uploadImageToCloudinary = async (image) => {
 //     try {
-//       const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/dumudqpgz/image/upload';
+//       const cloudinaryUrl = 'http://api.cloudinary.com/v1_1/dumudqpgz/image/upload';
 //       const uploadPreset = 'womanSafetyApp';
 
 //       const data = new FormData();
@@ -1166,7 +1236,7 @@ const styles = StyleSheet.create({
 // setImageSource(saveImage)
 //   console.log(saveImage , 'image saved successfully');
 
-// url = 'https://api.cloudinary.com/v1_1/dumudqpgz/image/upload'
+// url = 'http://api.cloudinary.com/v1_1/dumudqpgz/image/upload'
 // const uploadImageToCloudinary = async (image) => {
 //     try {
 //         const cloudinary = new Cloudinary({ cloud_name: 'dumudqpgz' });
@@ -1175,7 +1245,7 @@ const styles = StyleSheet.create({
 //         data.append('upload_preset', 'YOUR_UPLOAD_PRESET');
 //         data.append('cloud_name', 'dumudqpgz');
 //         const response = await axios.post(
-//             cloudinary.url('https://api.cloudinary.com/v1_1/dumudqpgz/image/upload'),
+//             cloudinary.url('http://api.cloudinary.com/v1_1/dumudqpgz/image/upload'),
 //             data
 //         );
 //         if (response.status !== 200) {

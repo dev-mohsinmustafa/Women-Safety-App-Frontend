@@ -15,59 +15,59 @@ const SearchUserPage = ({ navigation }) => {
     // let data = [
     //     {
     //         username: "harshal",
-    //         profileimage: "https://picsum.photos/200/300"
+    //         profileimage: "http://picsum.photos/200/300"
     //     },
     //     {
     //         username: "mohsin",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "viraj",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "saeed",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user3",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "azam",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user4",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "ahmad",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user5",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "ali",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "user6",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "hassan",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "ans",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
     //     {
     //         username: "hussain",
-    //         profileimage: "https://picsum.photos/500/500"
+    //         profileimage: "http://picsum.photos/500/500"
     //     },
 
     // ]

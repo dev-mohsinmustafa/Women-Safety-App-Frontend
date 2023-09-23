@@ -66,6 +66,47 @@ const Register = ({ navigation }) => {
     // to uske leye pehle jaha hmne input fields lagai hai unko get krna prenge values
 
 
+    // Add a state variable to track the email validation error:
+    const [emailError, setEmailError] = useState('');
+
+    // Create a function to validate the email using a regular expression:
+    const validateEmail = (email) => {
+        // Regular expression for email validation
+        // const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+// const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      
+        if (!emailRegex.test(email)) {
+          setEmailError('Invalid email address');
+          return false;
+        } 
+        else {
+          setEmailError('');
+          return true;
+        }
+      };
+      
+
+
+
+
+      const [passwordError, setPasswordError] = useState('');
+
+// Function to validate password length
+const validatePassword = (password) => {
+    if (password.length < 6) {
+      setPasswordError('Password must be at least 6 characters long');
+      return false;
+    } else {
+      setPasswordError('');
+      return true;
+    }
+  };
+
+
 
     // jo neche function banaya 
 
@@ -83,6 +124,17 @@ const Register = ({ navigation }) => {
             // ab ye error message ap kahi pe be dekha skty ho jese me form ke top me he dekha deta hu
             return
         }
+
+        if (!validateEmail(fdata.email)) {
+            return; // Stop execution if email is invalid
+          }
+        
+
+           // Password length validation
+    if (!validatePassword(fdata.password)) {
+        return; // Stop execution if password is invalid
+      }
+  
 
 
         //neche error ka jo code kiya hai usko dekhane ke bad hamne check krna hai agr user ne sab kush sai
@@ -307,12 +359,26 @@ const Register = ({ navigation }) => {
                                     placeholderTextColor="#FFECD0"
                                     style={[styles.input, styles.email]}
 
-                                    onChangeText={(text) => setFdata({ ...fdata, email: text })}
-                                    onPressIn={() => setErrormsg(null)}
+                                    onChangeText={(text) => setFdata({ ...fdata, email: text.toLowerCase() })}
+                                    onPressIn={() =>
+                                        
+                                        {
+                                            setErrormsg(null);
+                                            setEmailError(''); // Clear email validation error
+
+                                        }}
+
+                                        
 
 
                                 />
                             </View>
+{/* Display email validation error */}
+{emailError ? (
+  <Text style={styles.errorText}>{emailError}</Text>
+) : null}
+
+
                         </View>
 
                         <View style={{ marginTop: heightPixel(19) }}>
@@ -335,12 +401,16 @@ const Register = ({ navigation }) => {
                                     // jitna be data hai wo ab hamary pass ajaye ga
                                     // eske bad me ham register wale button pe backend lagaye ge
 
-                                    onPressIn={() => setErrormsg(null)}
+                                    onPressIn={() => {
+                                        setErrormsg(null)
+                                        setPasswordError(''); // Clear password validation error
+
+                                    }}
 
 
                                 />
 
-<TouchableOpacity onPress={passwordHandler} style={{ position: 'absolute', right: 10, top: 8, }}>
+                                <TouchableOpacity onPress={passwordHandler} style={{ position: 'absolute', right: 10, top: 8, }}>
                                     {
                                         showPassword ?
                                             <Icon name='eye' size={20} color="#FFECD0" />
@@ -351,6 +421,11 @@ const Register = ({ navigation }) => {
                                     }
                                 </TouchableOpacity>
                             </View>
+
+                              {/* Display password validation error */}
+            {passwordError ? (
+              <Text style={styles.errorText}>{passwordError}</Text>
+            ) : null}
 
                         </View>
 
@@ -367,7 +442,7 @@ const Register = ({ navigation }) => {
                     {loading ? <ActivityIndicator size={'large'} color="red" /> :
 
                         <View style={styles.imageContainer}>
-                            <Image
+                            {/* <Image
                                 style={{ width: widthPixel(45), height: heightPixel(45) }}
                                 source={require("../../assets/images/google-logo.png")}
                             />
@@ -378,7 +453,7 @@ const Register = ({ navigation }) => {
                             <Image
                                 style={{ width: widthPixel(45), height: heightPixel(45) }}
                                 source={require("../../assets/images/apple-logo.png")}
-                            />
+                            /> */}
                         </View>
                     }
 
@@ -395,7 +470,7 @@ const Register = ({ navigation }) => {
 
 
 
-                    <TouchableOpacity  style={{marginBottom:27}} onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{ marginBottom: 27 }} onPress={() => sendToBackend()}>
                         <MainButton title="Register" />
                     </TouchableOpacity>
 
@@ -459,7 +534,7 @@ const styles = StyleSheet.create({
         borderColor: "#FFECD0",
         borderRadius: 10,
         // paddingHorizontal: widthPixel(10),
-        padding:widthPixel(10)
+        padding: widthPixel(10)
 
     },
     container2: {
@@ -502,7 +577,18 @@ const styles = StyleSheet.create({
         fontSize: fontPixel(16),
         // backgroundColor: "gray",
     },
- 
+
+
+    errorText:{
+        marginLeft: 30,
+        width:"70%",
+        marginTop: 5,
+        color: "red",
+        backgroundColor: "white",
+        textAlign: 'center',
+        borderRadius: 10,
+        fontSize: 15
+    }
 
 })
 

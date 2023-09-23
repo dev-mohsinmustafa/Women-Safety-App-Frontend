@@ -158,7 +158,7 @@ const ChangeUsername = ({ navigation }) => {
 
 
 
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
             <GoBack />
 
@@ -222,7 +222,7 @@ const ChangeUsername = ({ navigation }) => {
 
 
                             <View style={styles.imageContainer}>
-                                <Image
+                                {/* <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/google-logo.png")}
                                 />
@@ -233,7 +233,7 @@ const ChangeUsername = ({ navigation }) => {
                                 <Image
                                     style={{ width: widthPixel(45), height: heightPixel(45) }}
                                     source={require("../../assets/images/apple-logo.png")}
-                                />
+                                /> */}
                             </View>
 
                     }
@@ -249,7 +249,7 @@ const ChangeUsername = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity onPress={() => sendToBackend()}>
+                    <TouchableOpacity style={{marginBottom:27}} onPress={() => sendToBackend()}>
                         <MainButton title="Save" />
                     </TouchableOpacity>
 
@@ -257,7 +257,7 @@ const ChangeUsername = ({ navigation }) => {
                 </ScrollView>
 
             </KeyboardAvoidingView>
-        </View>
+        </ScrollView>
 
 
 

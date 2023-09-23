@@ -34,7 +34,7 @@ import storage from '@react-native-firebase/storage';
 //     storageBucket: "womensafetyapp-eaeb2.appspot.com",
 //     messagingSenderId: "1035857805556",
 //     appId: "1:1035857805556:web:27697254808eb90afbdea1",
-//     databaseURL: "https://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
+//     databaseURL: "http://console.firebase.google.com/u/0/project/womensafetyapp-eaeb2/database/womensafetyapp-eaeb2-default-rtdb/data/~2F"
 // };
 
 // // Check if Firebase is already initialized before initializing it again
@@ -572,7 +572,7 @@ const styles = StyleSheet.create({
 
 // const uploadImageToCloudinary = async (image) => {
 //     try {
-//       const cloudinaryUrl = 'https://api.cloudinary.com/v1_1/dumudqpgz/image/upload';
+//       const cloudinaryUrl = 'http://api.cloudinary.com/v1_1/dumudqpgz/image/upload';
 //       const uploadPreset = 'womanSafetyApp';
 
 //       const data = new FormData();
@@ -630,7 +630,7 @@ const styles = StyleSheet.create({
 // setImageSource(saveImage)
 //   console.log(saveImage , 'image saved successfully');
 
-// url = 'https://api.cloudinary.com/v1_1/dumudqpgz/image/upload'
+// url = 'http://api.cloudinary.com/v1_1/dumudqpgz/image/upload'
 // const uploadImageToCloudinary = async (image) => {
 //     try {
 //         const cloudinary = new Cloudinary({ cloud_name: 'dumudqpgz' });
@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
 //         data.append('upload_preset', 'YOUR_UPLOAD_PRESET');
 //         data.append('cloud_name', 'dumudqpgz');
 //         const response = await axios.post(
-//             cloudinary.url('https://api.cloudinary.com/v1_1/dumudqpgz/image/upload'),
+//             cloudinary.url('http://api.cloudinary.com/v1_1/dumudqpgz/image/upload'),
 //             data
 //         );
 //         if (response.status !== 200) {

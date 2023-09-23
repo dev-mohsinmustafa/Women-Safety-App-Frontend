@@ -34,15 +34,15 @@ const getIconColor = focused => ({
 
 
 // Very Important Point for multiple screens navigation
-const ChannelStack = () => {
-return(
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-    <Stack.Screen name="Channel" component={Channel} />
-    <Stack.Screen name="ChatGPT" component={ChatGpt} />
-</Stack.Navigator>
-)
+// const ChannelStack = () => {
+// return(
+//     <Stack.Navigator screenOptions={{ headerShown: false }}>
+//     <Stack.Screen name="Channel" component={Channel} />
+//     <Stack.Screen name="ChatGPT" component={ChatGpt} />
+// </Stack.Navigator>
+// )
 
-}
+// }
 
 
 
@@ -80,7 +80,7 @@ const TabNavigator = () => {
 
             />
             {/* Very Important Point for multiple screens navigation */}
-            <Tab.Screen name='ChannelStack' component={ChannelStack}
+            <Tab.Screen name='ChatGpt' component={ChatGpt}
                 options={{
                     tabBarIconStyle: {
                         height: 0

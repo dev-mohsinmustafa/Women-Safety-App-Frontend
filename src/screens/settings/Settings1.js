@@ -40,9 +40,9 @@ const Settings1 = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.navigate("ChangePassword")}>
                     <Text style={styles.text}  >Change Password</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Description")}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("Description")}>
                     <Text style={styles.text}>Customer Support</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
                 <TouchableOpacity onPress={() => navigation.navigate("EmergencyScreen")}>
                     <Text style={styles.text}>Emergency Call</Text>
@@ -55,10 +55,17 @@ const Settings1 = ({ navigation }) => {
                     <Text style={styles.text}>About Me</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate("GenerateMeeting")}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate("AudioRecording")}>
+                    <Text style={styles.text}>Audio Recording</Text>
+                </TouchableOpacity> */}
+                {/* <TouchableOpacity onPress={() => navigation.navigate("GenerateMeeting")}>
                     <Text style={styles.text}>Video Call</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 
+                {/* <TouchableOpacity onPress={() => navigation.navigate("ShareFiles")}>
+                    <Text style={styles.text}>Share Files</Text>
+                </TouchableOpacity> */}
+
                 <TouchableOpacity onPress={() => navigation.navigate("FeedBack")}>
                     <Text style={styles.text}>Give FeedBack</Text>
                 </TouchableOpacity>
@@ -68,9 +75,11 @@ const Settings1 = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.navigate("AboutApp")}>
                     <Text style={styles.text}>About App</Text>
                 </TouchableOpacity>
+                
                 <TouchableOpacity onPress={() => navigation.navigate("PrivacyPolicy")}>
                     <Text style={styles.text}>Privacy Policy</Text>
                 </TouchableOpacity>
+               
                 <TouchableOpacity onPress={() => navigation.navigate("ShakeSignal")}>
                     <Text style={styles.text}>Shake Signal</Text>
                 </TouchableOpacity>
